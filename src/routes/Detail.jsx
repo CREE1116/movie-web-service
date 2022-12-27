@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
 import useNetwork from "../userNetwork";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Detail() {
   const [detail, setDetail] = useState();
@@ -58,9 +59,10 @@ function Detail() {
           </ul>
           <div className={styles.container}>
             <div className={styles.movie__imgBox}>
-              <img
+              <LazyLoadImage
                 src={detail.large_cover_image}
                 alt={detail.title}
+                effect="blur"
                 className={styles.movie__img}
               />
             </div>

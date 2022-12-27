@@ -2,15 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./Movie.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Movie(props) {
   const movie = props.movie;
   return (
     <div key={movie.id} className={styles.movie}>
-      <img
+      <LazyLoadImage
         src={movie.medium_cover_image}
         alt={movie.title}
         className={styles.movie__img}
+        effect="blur"
       />
       <div>
         <h2 className={styles.movie__title}>

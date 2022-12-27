@@ -6,7 +6,6 @@ import useNetwork from "../userNetwork";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [onlinestate, setOnlinestate] = useState(true);
   const getMovices = async () => {
     const response = await fetch(
       "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
