@@ -568,7 +568,7 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "dir": "auto",
-  "scope": ".",
+  "scope": "https://cree1116.github.io/Movie/",
   "orientation": "any",
   "lang": "en"
 }
