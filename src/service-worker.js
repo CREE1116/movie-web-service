@@ -72,7 +72,6 @@ self.addEventListener("message", (event) => {
 
 // Any other custom service worker logic can go here.
 console.log("Hello from service-worker.js");
-console.log(process.env.PUBLIC_URL);
 
 const cacheName = "fetch-cache";
 const contentToChache = [

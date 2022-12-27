@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
+import useNetwork from "../userNetwork";
 
 function Detail() {
   const [detail, setDetail] = useState();
   const [loading, setLoading] = useState(true);
+  const [onLine, setOnLine] = useState(true);
   const { id } = useParams();
   const getDetail = async () => {
     const response = await fetch(
@@ -19,13 +21,21 @@ function Detail() {
   useEffect(() => {
     getDetail();
   }, []);
+  const handleNetworkChange = (online) => {
+    setOnLine(online);
+  };
+  useNetwork(handleNetworkChange);
 
   return (
     <div>
       {loading ? (
-        <div className={styles.loader}>
-          <span>loading...</span>
-        </div>
+        onLine ? (
+          <div className={styles.loader}>
+            <span>Loading...</span>
+          </div>
+        ) : (
+          <h1>OffLine</h1>
+        )
       ) : (
         <>
           <h1 className={styles.movie__title}>{detail.title_long}</h1>
