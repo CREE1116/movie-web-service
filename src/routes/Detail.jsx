@@ -6,7 +6,6 @@ import useNetwork from "../userNetwork";
 function Detail() {
   const [detail, setDetail] = useState();
   const [loading, setLoading] = useState(true);
-  const [onLine, setOnLine] = useState(true);
   const { id } = useParams();
   const getDetail = async () => {
     const response = await fetch(
@@ -22,10 +21,9 @@ function Detail() {
     getDetail();
   }, []);
   const handleNetworkChange = (online) => {
-    setOnLine(online);
+    console.log(online ? "We just went online" : "We are offline");
   };
-  useNetwork(handleNetworkChange);
-
+  const onLine = useNetwork(handleNetworkChange);
   return (
     <div>
       {loading ? (
@@ -34,7 +32,9 @@ function Detail() {
             <span>Loading...</span>
           </div>
         ) : (
-          <h1>OffLine</h1>
+          <div className={styles.loader}>
+            <span>offline</span>
+          </div>
         )
       ) : (
         <>

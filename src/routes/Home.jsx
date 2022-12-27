@@ -6,7 +6,7 @@ import useNetwork from "../userNetwork";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [onLine, setOnLine] = useState(true);
+  const [onlinestate, setOnlinestate] = useState(true);
   const getMovices = async () => {
     const response = await fetch(
       "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
@@ -19,9 +19,9 @@ function Home() {
     getMovices();
   }, []);
   const handleNetworkChange = (online) => {
-    setOnLine(online);
+    console.log(online ? "We just went online" : "We are offline");
   };
-  useNetwork(handleNetworkChange);
+  const onLine = useNetwork(handleNetworkChange);
   return (
     <div className={styles.container}>
       {loading ? (
@@ -30,7 +30,9 @@ function Home() {
             <span>Loading...</span>
           </div>
         ) : (
-          <h1>OffLine</h1>
+          <div className={styles.loader}>
+            <span>offline</span>
+          </div>
         )
       ) : (
         <div className={styles.movies}>
