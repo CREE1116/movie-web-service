@@ -568,7 +568,8 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "dir": "auto",
-  "scope": "https://cree1116.github.io/movie-web-service",
+  "scope": "https://cree1116.github.io/movie-web-service/",
+  "prefer_related_applications": true,
   "orientation": "any",
   "lang": "en"
 }
