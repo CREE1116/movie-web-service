@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie-web-service/Movie/:id" component={Detail} />
-        <Route path="/movie-web-service/" component={Home} />
+        <Route path="/Movie/:id" component={Detail} />
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   );
