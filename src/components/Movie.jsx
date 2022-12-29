@@ -16,7 +16,7 @@ function Movie(props) {
       />
       <div>
         <h2 className={styles.movie__title}>
-          <Link to={`/Movie/${movie.id}`}>{movie.title}</Link>
+          <Link to={`movie-web-service/Movie/${movie.id}`}>{movie.title}</Link>
         </h2>
         <h3 className={styles.movie__year}>{movie.year}</h3>
         <p>
